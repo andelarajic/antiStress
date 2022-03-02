@@ -1,22 +1,23 @@
-import 'react-native-gesture-handler'
 import React from "react";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import RelaxationTips from "./components/relaxationTips/RelaxationTips";
-import Breathing from "./components/breathing/Breathing";
-import Home from './components/home/home';
-import Yoga from './components/yoga/Yoga'
-import Relaxation from './components/relaxation/Relaxation';
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
+import HomeScreen from './screens/HomeScreen'
+import Relaxation from "./screens/relaxation/Relaxation";
+import RelaxationTips from "./screens/relaxationTips/RelaxationTips";
+import Breathing from "./screens/breathing/Breathing";
+import { Yoga } from "./screens/yoga/Yoga";
 
 const Drawer = createDrawerNavigator()
 
 export default function App() {
+
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
-      <Drawer.Screen name="Home" component={Home} />
-        <Drawer.Screen name="Relaxation tips" component={RelaxationTips} />
+      <Drawer.Navigator>
+        <Drawer.Screen name="Home" component={HomeScreen} />
+        <Drawer.Screen name="RelaxationTips" component={RelaxationTips} />
         <Drawer.Screen name="Breathing" component={Breathing} />
         <Drawer.Screen name="Yoga" component={Yoga} />
         <Drawer.Screen name="Relaxation" component={Relaxation} />

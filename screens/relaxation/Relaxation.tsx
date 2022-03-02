@@ -1,9 +1,10 @@
+import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function RelaxationTips() {
+export default function Relaxation() {
   return (
     <View style={styles.container}>
-      <Text>RelaxationTips</Text>
+      <Text>Relaxation</Text>
     </View>
   );
 }

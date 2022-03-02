@@ -1,9 +1,10 @@
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function Yoga() {
+export default function Breathing() {
   return (
     <View style={styles.container}>
-      <Text>Yoga</Text>
+      <Text>Breathing</Text>
     </View>
   );
 }

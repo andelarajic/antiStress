@@ -1,9 +1,10 @@
+import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function Home() {
+export default function RelaxationTips() {
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
+      <Text>RelaxationTips</Text>
     </View>
   );
 }
