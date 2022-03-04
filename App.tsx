@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+
 
 import HomeScreen from './screens/HomeScreen'
 import Relaxation from "./screens/relaxation/Relaxation";
@@ -15,7 +16,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
+      <Drawer.Navigator>  
         <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="RelaxationTips" component={RelaxationTips} />
         <Drawer.Screen name="Breathing" component={Breathing} />
@@ -25,4 +26,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
