@@ -7,10 +7,10 @@ export default function Breathing() {
   return (
     <View style={styles.container}>
       <Text>Breathing</Text>
+   <NavButton destination='BreathingAnimation' text='Relaxation Tips' image={logo} />
+   { /* <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} />
       <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} />
-      <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} />
-      <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} />
-      <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} />
+  <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} /> */ }
     </View>
   );
 }
@@ -19,5 +19,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    alignItems: 'center',
   },
 });

@@ -7,9 +7,9 @@ export default function Relaxation() {
   return (
     <View style={styles.container}>
       <Text>Relaxation</Text>
+   { /* <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} />
       <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} />
-      <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} />
-      <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} />
+      <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} /> */ }
     </View>
   );
 }
