@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
-import { StyleSheet, Text, View,  Dimensions, Animated } from 'react-native';
+import { StyleSheet, Text, View,  Dimensions, Animated, Button } from 'react-native';
+import { Audio } from 'expo-av';
 
 const { width, height } = Dimensions.get("window");
 const circleWidth = width / 2;
@@ -7,6 +8,7 @@ const circleWidth = width / 2;
 export const BreathingAnimation = () => {
     const move = useRef(new Animated.Value(0)).current;
     const textOpacity = useRef(new Animated.Value(1)).current;
+    const [sound, setSound] = React.useState<Audio.Sound>();
     Animated.loop(
       Animated.sequence([
         Animated.parallel([
@@ -45,8 +47,30 @@ export const BreathingAnimation = () => {
       inputRange: [0, 1],
       outputRange: [1, 0],
     });
+
+    async function playSound() {
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync(
+         require('../../assets/Breathing.mp3')
+      );
+      setSound(sound);
+  
+      console.log('Playing Sound');
+      await sound.playAsync(); }
+
+      React.useEffect(() => {
+        return sound
+          ? () => {
+              console.log('Unloading Sound');
+              sound.unloadAsync(); }
+          : undefined;
+      }, [sound]);
+
     return (
       <View style={styles.container}>
+            <View style={styles.container}>
+          <Button title="Play Sound" onPress={playSound} />
+        </View>
         <Animated.View
           style={{
             width: circleWidth,
