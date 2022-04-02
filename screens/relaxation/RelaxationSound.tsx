@@ -1,5 +1,5 @@
-import React, { useRef } from 'react'
-import { StyleSheet, Text, View,  Dimensions, Animated, Button } from 'react-native';
+import React from 'react'
+import { StyleSheet, View, Button } from 'react-native';
 import { Audio } from 'expo-av';
 
 export const RelaxationSound = () => {
@@ -8,7 +8,7 @@ export const RelaxationSound = () => {
     async function playSound() {
         console.log('Loading Sound');
         const { sound } = await Audio.Sound.createAsync(
-           require('../../assets/Breathing.mp3')
+           require('../../assets/ForestSound.mp3')
         );
         setSound(sound);
     
