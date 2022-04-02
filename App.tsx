@@ -8,6 +8,7 @@ import RelaxationTips from "./screens/relaxationTips/RelaxationTips";
 import Breathing from "./screens/breathing/Breathing";
 import { Yoga } from "./screens/yoga/Yoga";
 import { BreathingAnimation } from "./screens/breathing/BreathingAnimation";
+import { RelaxationSound } from "./screens/relaxation/RelaxationSound";
 
 LogBox.ignoreLogs(['Remote debugger']);
 
@@ -25,6 +26,7 @@ export default function App() {
         <Drawer.Screen name="Yoga" component={Yoga} />
         <Drawer.Screen name="Relaxation" component={Relaxation} />
         <Drawer.Screen name="BreathingAnimation" component={BreathingAnimation} />
+        <Drawer.Screen name="RelaxationSound" component={RelaxationSound} />
       </Drawer.Navigator>
     </NavigationContainer>
             </>
