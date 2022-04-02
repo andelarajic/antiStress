@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text } from "react-native";
+import { View, Text, LogBox } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import HomeScreen from './screens/HomeScreen'
@@ -8,6 +8,8 @@ import RelaxationTips from "./screens/relaxationTips/RelaxationTips";
 import Breathing from "./screens/breathing/Breathing";
 import { Yoga } from "./screens/yoga/Yoga";
 import { BreathingAnimation } from "./screens/breathing/BreathingAnimation";
+
+LogBox.ignoreLogs(['Remote debugger']);
 
 const Drawer = createDrawerNavigator()
 
