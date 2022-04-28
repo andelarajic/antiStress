@@ -25,8 +25,12 @@ export default function App() {
         <Drawer.Screen name="Breathing" component={Breathing} />
         <Drawer.Screen name="Yoga" component={Yoga} />
         <Drawer.Screen name="Relaxation" component={Relaxation} />
-        <Drawer.Screen name="BreathingAnimation" component={BreathingAnimation} />
-        <Drawer.Screen name="RelaxationSound" component={RelaxationSound} />
+        <Drawer.Screen name="BreathingAnimation" component={BreathingAnimation} options={{
+                  drawerItemStyle: { display: 'none' }   }} />
+        <Drawer.Screen name="RelaxationSound" component={RelaxationSound} options={{
+                  drawerItemStyle: { display: 'none' }
+        }}
+ />
       </Drawer.Navigator>
     </NavigationContainer>
             </>
