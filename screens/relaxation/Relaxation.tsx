@@ -8,8 +8,8 @@ export default function Relaxation() {
     <View style={styles.container}>
       <Text>Relaxation</Text>
        <NavButton destination='RelaxationSound' text='RelaxationSound' image={logo} />
-  { /*<NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} />
-      <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} /> */ }
+       <NavButton destination='RelaxationSound' text='RelaxationSound' image={logo} />
+       <NavButton destination='RelaxationSound' text='RelaxationSound' image={logo} />
     </View>
   );
 }
