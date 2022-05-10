@@ -6,9 +6,6 @@ import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
-
-
-
 //const SampleTrack = require('../../assets/ForestSound.mp3');
 const SampleTrack = require('../../assets/Breathing.mp3');
 
@@ -29,7 +26,7 @@ export const RelaxationSound = () => {
           sound.current.playAsync();
         }
       }
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const PauseAudio = async () => {
@@ -40,7 +37,7 @@ export const RelaxationSound = () => {
           sound.current.pauseAsync();
         }
       }
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const StopAudio = async () => {
@@ -51,7 +48,7 @@ export const RelaxationSound = () => {
           sound.current.stopAsync();
         }
       }
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const RepeatAudio = async () => {
@@ -60,7 +57,7 @@ export const RelaxationSound = () => {
       if (result.isLoaded) {
         sound.current.replayAsync();
       }
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const LoadAudio = async () => {
@@ -87,15 +84,15 @@ export const RelaxationSound = () => {
 
   return (
     <View style={styles.container}>
-          <View style={styles.image}>
-       <Image style={styles.logo} source={logo} />
-       </View>
-       <View style={styles.buttons}>
-       <AntDesign name="playcircleo" size={32} color="black" onPress={PlayAudio} />
-       <AntDesign name="pause" size={32} color="black" onPress={PauseAudio} />
-       <Entypo name="controller-stop" size={32} color="black" onPress={StopAudio} />
-       <FontAwesome name="repeat" size={32} color="black" onPress={RepeatAudio} />
-    </View>
+      <View style={styles.image}>
+        <Image style={styles.logo} source={logo} />
+      </View>
+      <View style={styles.buttons}>
+        <AntDesign name="playcircleo" size={32} color="black" onPress={PlayAudio} />
+        <AntDesign name="pause" size={32} color="black" onPress={PauseAudio} />
+        <Entypo name="controller-stop" size={32} color="black" onPress={StopAudio} />
+        <FontAwesome name="repeat" size={32} color="black" onPress={RepeatAudio} />
+      </View>
     </View>
   );
 }
@@ -105,16 +102,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#ffff",
     justifyContent: 'center',
- 
+
     alignItems: 'center',
   },
   image: {
-paddingBottom: 60
+    paddingBottom: 60
   },
   buttons: {
-display: 'flex',
-flexDirection: 'row',
-paddingTop : 90,
+    display: 'flex',
+    flexDirection: 'row',
+    paddingTop: 90,
   },
   logo: {
     width: 300,
