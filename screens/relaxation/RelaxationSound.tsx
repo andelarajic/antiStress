@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react'
 import { StyleSheet, Image, View, Button } from 'react-native';
 import { Audio } from 'expo-av';
-import logo from '../../assets/Relaxing.png'
+import logo from '../../assets/Relaxing.png';
+import { AntDesign } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
+
+
 
 
 //const SampleTrack = require('../../assets/ForestSound.mp3');
@@ -80,51 +85,17 @@ export const RelaxationSound = () => {
     }
   };
 
-
-
-/*
-  const [sound, setSound] = React.useState<Audio.Sound>();
-
-  useEffect(() => {
-
-  }, [])
-
-  async function initSound() {
-    console.log('Loading Sound');
-    const { sound } = await Audio.Sound.createAsync(
-      require('../../assets/ForestSound.mp3')
-    );
-    setSound(sound);
-  }
-
-  async function playSound() {
-    console.log('Playing Sound');
-    await sound?.playAsync();
-  }
-
-  async function stopSound() {
-    
-  }
-
-
-  React.useEffect(() => {
-    return sound
-      ? () => {
-        console.log('Unloading Sound');
-        sound.unloadAsync();
-      }
-      : undefined;
-  }, [sound]);
-
-  */
-
   return (
     <View style={styles.container}>
-      <Button title="Play Sound" onPress={PlayAudio} />
-      <Button title="Pause Sound" onPress={PauseAudio} />
-      <Button title="Stop Sound" onPress={StopAudio} />
-      <Button title="Repeat Sound" onPress={RepeatAudio} />
-      <Image style={styles.logo} source={logo} />
+          <View style={styles.image}>
+       <Image style={styles.logo} source={logo} />
+       </View>
+       <View style={styles.buttons}>
+       <AntDesign name="playcircleo" size={32} color="black" onPress={PlayAudio} />
+       <AntDesign name="pause" size={32} color="black" onPress={PauseAudio} />
+       <Entypo name="controller-stop" size={32} color="black" onPress={StopAudio} />
+       <FontAwesome name="repeat" size={32} color="black" onPress={RepeatAudio} />
+    </View>
     </View>
   );
 }
@@ -133,7 +104,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ffff",
-    paddingTop: 50
+    justifyContent: 'center',
+ 
+    alignItems: 'center',
+  },
+  image: {
+paddingBottom: 60
+  },
+  buttons: {
+display: 'flex',
+flexDirection: 'row',
+paddingTop : 90,
   },
   logo: {
     width: 300,
