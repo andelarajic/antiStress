@@ -1,76 +1,134 @@
 import React, { useRef } from 'react'
-import { StyleSheet, Text, View,  Dimensions, Animated, Button } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Animated, Button } from 'react-native';
 import { Audio } from 'expo-av';
+import { AntDesign } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 const { width, height } = Dimensions.get("window");
 const circleWidth = width / 2;
+const SampleTrack = require('../../assets/Breathing.mp3');
 
 export const BreathingAnimation = () => {
-    const move = useRef(new Animated.Value(0)).current;
-    const textOpacity = useRef(new Animated.Value(1)).current;
-    const [sound, setSound] = React.useState<Audio.Sound>();
-    Animated.loop(
-      Animated.sequence([
-        Animated.parallel([
-          Animated.timing(textOpacity, {
-            toValue: 1,
-            duration: 300,
-            useNativeDriver: true,
-          }),
-          Animated.timing(move, {
-            toValue: 1,
-            duration: 4000,
-            useNativeDriver: true,
-          }),
-        ]),
-        Animated.parallel([
-          Animated.timing(textOpacity, {
-            delay: 100,
-            toValue: 0,
-            duration: 300,
-            useNativeDriver: true,
-          }),
-          Animated.timing(move, {
-            delay: 1000,
-            toValue: 0,
-            duration: 4000,
-            useNativeDriver: true,
-          }),
-        ]),
-      ])
-    ).start();
-    const translate = move.interpolate({
-      inputRange: [0, 1],
-      outputRange: [0, circleWidth / 6],
-    });
-    const exhale = textOpacity.interpolate({
-      inputRange: [0, 1],
-      outputRange: [1, 0],
-    });
+  const move = useRef(new Animated.Value(0)).current;
+  const textOpacity = useRef(new Animated.Value(1)).current;
+  const [Loaded, SetLoaded] = React.useState(false);
+  const [Loading, SetLoading] = React.useState(false);
+  const sound = React.useRef(new Audio.Sound());
+  Animated.loop(
+    Animated.sequence([
+      Animated.parallel([
+        Animated.timing(textOpacity, {
+          toValue: 1,
+          duration: 300,
+          useNativeDriver: true,
+        }),
+        Animated.timing(move, {
+          toValue: 1,
+          duration: 4000,
+          useNativeDriver: true,
+        }),
+      ]),
+      Animated.parallel([
+        Animated.timing(textOpacity, {
+          delay: 100,
+          toValue: 0,
+          duration: 300,
+          useNativeDriver: true,
+        }),
+        Animated.timing(move, {
+          delay: 1000,
+          toValue: 0,
+          duration: 4000,
+          useNativeDriver: true,
+        }),
+      ]),
+    ])
+  ).start();
+  const translate = move.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, circleWidth / 6],
+  });
+  const exhale = textOpacity.interpolate({
+    inputRange: [0, 1],
+    outputRange: [1, 0],
+  });
 
-    async function playSound() {
-      console.log('Loading Sound');
-      const { sound } = await Audio.Sound.createAsync(
-         require('../../assets/Breathing.mp3')
-      );
-      setSound(sound);
-  
-      console.log('Playing Sound');
-      await sound.playAsync(); }
+  React.useEffect(() => {
+    LoadAudio();
+  }, []);
 
-      React.useEffect(() => {
-        return sound
-          ? () => {
-              console.log('Unloading Sound');
-              sound.unloadAsync(); }
-          : undefined;
-      }, [sound]);
+  const PlayAudio = async () => {
+    try {
+      const result = await sound.current.getStatusAsync();
+      if (result.isLoaded) {
+        if (result.isPlaying === false) {
+          sound.current.playAsync();
+        }
+      }
+    } catch (error) { }
+  };
 
-    return (
-      <View style={styles.container}>
-            <View style={styles.container}>
-          <Button title="Play Sound" onPress={playSound} />
-        </View>
+  const PauseAudio = async () => {
+    try {
+      const result = await sound.current.getStatusAsync();
+      if (result.isLoaded) {
+        if (result.isPlaying === true) {
+          sound.current.pauseAsync();
+        }
+      }
+    } catch (error) { }
+  };
+
+  const StopAudio = async () => {
+    try {
+      const result = await sound.current.getStatusAsync();
+      if (result.isLoaded) {
+        if (result.isPlaying === true) {
+          sound.current.stopAsync();
+        }
+      }
+    } catch (error) { }
+  };
+
+  const RepeatAudio = async () => {
+    try {
+      const result = await sound.current.getStatusAsync();
+      if (result.isLoaded) {
+        sound.current.replayAsync();
+      }
+    } catch (error) { }
+  };
+
+  const LoadAudio = async () => {
+    SetLoading(true);
+    const checkLoading = await sound.current.getStatusAsync();
+    if (checkLoading.isLoaded === false) {
+      try {
+        const result = await sound.current.loadAsync(SampleTrack, {}, true);
+        if (result.isLoaded === false) {
+          SetLoading(false);
+          console.log('Error in Loading Audio');
+        } else {
+          SetLoading(false);
+          SetLoaded(true);
+        }
+      } catch (error) {
+        console.log(error);
+        SetLoading(false);
+      }
+    } else {
+      SetLoading(false);
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.buttons}>
+        <AntDesign name="playcircleo" size={32} color="black" onPress={PlayAudio} />
+        <AntDesign name="pause" size={32} color="black" onPress={PauseAudio} />
+        <Entypo name="controller-stop" size={32} color="black" onPress={StopAudio} />
+        <FontAwesome name="repeat" size={32} color="black" onPress={RepeatAudio} />
         <Animated.View
           style={{
             width: circleWidth,
@@ -80,7 +138,7 @@ export const BreathingAnimation = () => {
             justifyContent: "center",
             opacity: textOpacity,
             left: width / 4,
-            top: height / 4, 
+            top: height / 4,
           }}
         >
           <Text
@@ -91,14 +149,16 @@ export const BreathingAnimation = () => {
           >
             Inhale
           </Text>
+
         </Animated.View>
+
         <Animated.View
           style={{
             width: circleWidth,
             height: circleWidth,
             ...StyleSheet.absoluteFill,
             left: width / 4,
-            top: height / 4, 
+            top: height / 4,
             alignItems: "center",
             justifyContent: "center",
             opacity: exhale,
@@ -129,7 +189,7 @@ export const BreathingAnimation = () => {
                 borderRadius: circleWidth / 2,
                 ...StyleSheet.absoluteFill,
                 left: width / 4,
-                top: height / 4, 
+                top: height / 4,
                 transform: [
                   {
                     rotateZ: rotation,
@@ -142,12 +202,13 @@ export const BreathingAnimation = () => {
           );
         })}
       </View>
-    );
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#ffff",
   }
-  
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-   backgroundColor: "#ffff",
-    },
-  });
+});

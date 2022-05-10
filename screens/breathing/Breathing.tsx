@@ -7,10 +7,10 @@ export default function Breathing() {
   return (
     <View style={styles.container}>
       <Text>Breathing</Text>
-   <NavButton destination='BreathingAnimation' text='Breathing' image={logo} />
-   { /* <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} />
-      <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} />
-  <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} /> */ }
+      <NavButton destination='BreathingAnimation' text='Breathing' image={logo} />
+      <NavButton destination='BreathingAnimation' text='Breathing' image={logo} />
+      <NavButton destination='BreathingAnimation' text='Breathing' image={logo} />
+      <NavButton destination='BreathingAnimation' text='Breathing' image={logo} />
     </View>
   );
 }
