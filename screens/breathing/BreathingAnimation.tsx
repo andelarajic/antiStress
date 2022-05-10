@@ -149,9 +149,7 @@ export const BreathingAnimation = () => {
           >
             Inhale
           </Text>
-
         </Animated.View>
-
         <Animated.View
           style={{
             width: circleWidth,
