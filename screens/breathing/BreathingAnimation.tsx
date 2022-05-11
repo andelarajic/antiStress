@@ -124,81 +124,82 @@ export const BreathingAnimation = () => {
 
   return (
     <View style={styles.container}>
+      <Animated.View
+        style={{
+          width: circleWidth,
+          height: circleWidth,
+          ...StyleSheet.absoluteFill,
+          alignItems: "center",
+          justifyContent: "center",
+          opacity: textOpacity,
+          left: width / 4,
+          top: height / 4,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 20,
+            fontWeight: "600",
+          }}
+        >
+          Inhale
+        </Text>
+      </Animated.View>
+      <Animated.View
+        style={{
+          width: circleWidth,
+          height: circleWidth,
+          ...StyleSheet.absoluteFill,
+          left: width / 4,
+          top: height / 4,
+          alignItems: "center",
+          justifyContent: "center",
+          opacity: exhale,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 20,
+            fontWeight: "600",
+          }}
+        >
+          Exhale
+        </Text>
+      </Animated.View>
+      {[0, 1, 2, 3, 4, 5, 6, 7].map((item) => {
+        const rotation = move.interpolate({
+          inputRange: [0, 1],
+          outputRange: [`${item * 45}deg`, `${item * 45 + 180}deg`],
+        });
+        return (
+          <Animated.View
+            key={item}
+            style={{
+              opacity: 0.1,
+              backgroundColor: "blue",
+              width: circleWidth,
+              height: circleWidth,
+              borderRadius: circleWidth / 2,
+              ...StyleSheet.absoluteFill,
+              left: width / 4,
+              top: height / 4,
+              transform: [
+                {
+                  rotateZ: rotation,
+                },
+                { translateX: translate },
+                { translateY: translate },
+              ],
+            }}
+          ></Animated.View>
+
+        );
+      })}
       <View style={styles.buttons}>
         <AntDesign name="playcircleo" size={32} color="black" onPress={PlayAudio} />
         <AntDesign name="pause" size={32} color="black" onPress={PauseAudio} />
         <Entypo name="controller-stop" size={32} color="black" onPress={StopAudio} />
         <FontAwesome name="repeat" size={32} color="black" onPress={RepeatAudio} />
-        <Animated.View
-          style={{
-            width: circleWidth,
-            height: circleWidth,
-            ...StyleSheet.absoluteFill,
-            alignItems: "center",
-            justifyContent: "center",
-            opacity: textOpacity,
-            left: width / 4,
-            top: height / 4,
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: "600",
-            }}
-          >
-            Inhale
-          </Text>
-        </Animated.View>
-        <Animated.View
-          style={{
-            width: circleWidth,
-            height: circleWidth,
-            ...StyleSheet.absoluteFill,
-            left: width / 4,
-            top: height / 4,
-            alignItems: "center",
-            justifyContent: "center",
-            opacity: exhale,
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: "600",
-            }}
-          >
-            Exhale
-          </Text>
-        </Animated.View>
-        {[0, 1, 2, 3, 4, 5, 6, 7].map((item) => {
-          const rotation = move.interpolate({
-            inputRange: [0, 1],
-            outputRange: [`${item * 45}deg`, `${item * 45 + 180}deg`],
-          });
-          return (
-            <Animated.View
-              key={item}
-              style={{
-                opacity: 0.1,
-                backgroundColor: "blue",
-                width: circleWidth,
-                height: circleWidth,
-                borderRadius: circleWidth / 2,
-                ...StyleSheet.absoluteFill,
-                left: width / 4,
-                top: height / 4,
-                transform: [
-                  {
-                    rotateZ: rotation,
-                  },
-                  { translateX: translate },
-                  { translateY: translate },
-                ],
-              }}
-            ></Animated.View>
-          );
-        })}
       </View>
     </View>
   );
@@ -207,6 +208,17 @@ export const BreathingAnimation = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ffff",
+    backgroundColor: "#fff",
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttons: {
+
+    display: 'flex',
+    flexDirection: 'row',
+    paddingTop: 400
   }
 });

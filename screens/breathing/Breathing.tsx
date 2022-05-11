@@ -8,9 +8,9 @@ export default function Breathing() {
     <View style={styles.container}>
       <Text>Breathing</Text>
       <NavButton destination='BreathingAnimation' text='Short break' image={logo} />
-      <NavButton destination='BreathingAnimation' text='Basic exercise' image={logo}  />
+      <NavButton destination='BreathingAnimation' text='Basic exercise' image={logo} />
       <NavButton destination='BreathingAnimation' text='Rest and sleep' image={logo} />
-      <NavButton destination='BreathingAnimation' text='Breathing' image={logo}/>
+      <NavButton destination='BreathingAnimation' text='Breathing' image={logo} />
     </View>
   );
 }
