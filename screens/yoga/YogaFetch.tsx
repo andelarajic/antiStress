@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native';
-import { RelaxationTip } from '../../model/Relaxation';
-import { ChooseTips } from './ChooseTips';
 
 
-export default function RelaxationTipsFetch() {
-  const [data, setData] = useState<RelaxationTip[]>([]);
+export default function YogaFetch() {
+  const [data, setData] = useState([]);
   console.log(data);
 
   useEffect(() => {
@@ -17,12 +15,8 @@ export default function RelaxationTipsFetch() {
 
   return (
     <View>
-      {/*
-       data.map((d, index) => (
-         <ChooseTips tip={title} />
-        ))
-       */ }
 
+      
     </View>
-  )
+    )
 }

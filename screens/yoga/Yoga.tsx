@@ -7,8 +7,8 @@ export const Yoga = () => {
   return (
     <View style={styles.container}>
       <Text>Yoga</Text>
-     {/* <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} />
-      <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} /> */}
+     <NavButton destination='YogaFetch' text='Yoga' image={logo} />
+      <NavButton destination='YogaFetch' text='Yoga' image={logo} />
     </View>
   );
 }

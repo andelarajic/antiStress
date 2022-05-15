@@ -1,12 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button} from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import { RelaxationTip } from '../../model/Relaxation';
-
 
 export const ChooseTips = (tip: RelaxationTip) => {
   return (
     <View style={styles.container}>
-        <Text>{tip.title}</Text>
+      { /* <TouchableOpacity
+       onPress={tip.title}
+        style={styles.button}>
+  </TouchableOpacity>*/ }
+      <Text>{tip.title}</Text>
     </View>
   );
 }
@@ -18,5 +21,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   }, image: {
     color: '#000'
+  },
+  button: {
+    backgroundColor: '#444'
   }
 });

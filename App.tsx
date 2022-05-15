@@ -10,6 +10,7 @@ import { Yoga } from "./screens/yoga/Yoga";
 import { BreathingAnimation } from "./screens/breathing/BreathingAnimation";
 import { RelaxationSound } from "./screens/relaxation/RelaxationSound";
 import RelaxationTipsFetch from "./screens/relaxationTips/RelaxationTipsFetch";
+import YogaFetch from "./screens/yoga/YogaFetch";
 
 LogBox.ignoreLogs(['Remote debugger']);
 
@@ -19,23 +20,28 @@ export default function App() {
 
   return (
     <>
-    <NavigationContainer>
-      <Drawer.Navigator>  
-        <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="RelaxationTips" component={RelaxationTips} />
-        <Drawer.Screen name="Breathing" component={Breathing} />
-        <Drawer.Screen name="Yoga" component={Yoga} />
-        <Drawer.Screen name="Relaxation" component={Relaxation} />
-        <Drawer.Screen name="BreathingAnimation" component={BreathingAnimation} options={{
-                  drawerItemStyle: { display: 'none' }   }} />
-        <Drawer.Screen name="RelaxationTipsFetch" component={RelaxationTipsFetch} options={{
-                  drawerItemStyle: { display: 'none' }   }} />
-        <Drawer.Screen name="RelaxationSound" component={RelaxationSound} options={{
-                  drawerItemStyle: { display: 'none' }
-        }}
- />
-      </Drawer.Navigator>
-    </NavigationContainer>
-            </>
+      <NavigationContainer>
+        <Drawer.Navigator>
+          <Drawer.Screen name="Home" component={HomeScreen} />
+          <Drawer.Screen name="RelaxationTips" component={RelaxationTips} />
+          <Drawer.Screen name="Breathing" component={Breathing} />
+          <Drawer.Screen name="Yoga" component={Yoga} />
+          <Drawer.Screen name="Relaxation" component={Relaxation} />
+          <Drawer.Screen name="BreathingAnimation" component={BreathingAnimation} options={{
+            drawerItemStyle: { display: 'none' }
+          }} />
+          <Drawer.Screen name="RelaxationTipsFetch" component={RelaxationTipsFetch} options={{
+            drawerItemStyle: { display: 'none' }
+          }} />
+          <Drawer.Screen name="RelaxationSound" component={RelaxationSound} options={{
+            drawerItemStyle: { display: 'none' }
+          }}
+          />
+          <Drawer.Screen name="YogaFetch" component={YogaFetch} options={{
+            drawerItemStyle: { display: 'none' }
+          }} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
