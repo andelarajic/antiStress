@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { StyleSheet, Text, View, Dimensions, Animated, Button } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Animated, Button, ImageBackground } from 'react-native';
 import { Audio } from 'expo-av';
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
@@ -208,7 +208,6 @@ export const BreathingAnimation = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     width: '100%',
     display: 'flex',
     flexDirection: 'row',

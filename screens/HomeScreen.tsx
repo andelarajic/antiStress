@@ -4,9 +4,8 @@ import logo from '../assets/pppp.jpeg'
 import NavButton from '../components/NavButton';
 
 export default function HomeScreen() {
-
   return (
-    <View>
+    <View style={styles.container}>
      <NavButton destination='RelaxationTips' text='Relaxation Tips' image={logo} />
      <NavButton destination='Breathing' text='Breathing' image={logo} />
      <NavButton destination='Yoga' text='Yoga' image={logo} />
@@ -17,16 +16,9 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    justifyContent: "center"
-  },
-  image: {
-    flexDirection: "row",
-    height: 100,
-    width: 100,
-  },
-  text: {
-    flexDirection: "row"
-
-  },
+    padding: 15 ,
+    backgroundColor: "#999",
+margin: 10,
+borderRadius: 30,  
+  }
 });
