@@ -54,8 +54,8 @@ export default function App() {
           <Drawer.Screen name="YogaFetch" component={YogaFetch} options={{
             drawerItemStyle: { display: 'none' }
           }} />
-           <Drawer.Screen name="ChooseTips" component={ChooseTips} 
-           />
+          { /* <Drawer.Screen name="ChooseTips" component={ChooseTips} 
+           /> */}
         </Drawer.Navigator>
       </NavigationContainer>
     </>
