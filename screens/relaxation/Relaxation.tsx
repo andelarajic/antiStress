@@ -17,7 +17,7 @@ export default function Relaxation() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#b0c4de",
     alignItems: 'center',
   },
 });

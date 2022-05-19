@@ -20,7 +20,7 @@ export default function NavButton(props: Props) {
       >
         <View style={{flexDirection: 'row', width: '100%' , justifyContent: "space-between"}}>
           <View style={{width: '50%', alignItems:"flex-start"}}>
-            <Text>{props.text}</Text>
+            <Text style={styles.text}>{props.text}</Text>
           </View>
           <View style={{width: '50%', alignItems:"flex-end"  }}>
             <Image style={styles.image} source={props.image} /> 
@@ -34,15 +34,28 @@ export default function NavButton(props: Props) {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-
+    backgroundColor: "#99badd",
+margin: 10,
+    borderRadius: 30, 
+    alignItems: "center",
+    height: 100,
+    padding:10,
+    opacity: 0.8
   },
   image: {
     flexDirection: "row",
-    height: 100,
-    width: 100,
- 
+    height: 60,
+    width:120,
+    padding: 20,
+    borderRadius: 60, 
+    marginRight: 10,
   },
   text: {
     flexDirection: "row",
+    fontSize: 20,
+    color: "white",
+    textAlignVertical: "center"
+
+
   },
 });

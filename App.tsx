@@ -22,11 +22,11 @@ const MyTheme = {
   dark: false,
   colors: {
     primary: 'black',
-    background: "#99badd",
-    card: '#99badd',
+    background: "#b0c4de",
+    card: '#b0c4de',
     text: 'rgb(28, 28, 30)',
-    border: '#99badd',
-    notification: '#99badd',
+    border: '#b0c4de',
+    notification: '#b0c4de',
   },
 };
 
